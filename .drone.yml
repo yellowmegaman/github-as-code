@@ -1,0 +1,11 @@
+kind: pipeline
+name: github
+
+steps:
+- name: terraform
+  image: hashicorp/terraform:0.11.11
+  environment:
+    TF_VAR_github_token:
+      from_secret: github_token
+  commands:
+  - terraform plan
