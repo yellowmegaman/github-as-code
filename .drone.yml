@@ -17,4 +17,4 @@ steps:
   - terraform apply -auto-approve -no-color
   when:
     target:
-    - apply-github
+    - apply
