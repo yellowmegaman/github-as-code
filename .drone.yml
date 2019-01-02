@@ -13,6 +13,9 @@ steps:
 
 - name: terraform-apply
   image: hashicorp/terraform:0.11.11
+  environment:
+    TF_VAR_github_token:
+      from_secret: github_token
   commands:
   - terraform apply -auto-approve -no-color
   when:
