@@ -7,15 +7,23 @@ steps:
   environment:
     TF_VAR_github_token:
       from_secret: github_token
+    GOOGLE_CREDENTIALS:
+      from_secret: google_credentials
   commands:
   - terraform init
   - terraform plan
+  when:
+    target:
+      exclude:
+      - apply
 
 - name: terraform-apply
   image: hashicorp/terraform:0.11.11
   environment:
     TF_VAR_github_token:
       from_secret: github_token
+    GOOGLE_CREDENTIALS:
+      from_secret: google_credentials
   commands:
   - terraform apply -auto-approve -no-color
   when:
