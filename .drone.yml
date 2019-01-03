@@ -25,6 +25,7 @@ steps:
     GOOGLE_CREDENTIALS:
       from_secret: google_credentials
   commands:
+  - terraform init
   - terraform apply -auto-approve -no-color
   when:
     target:
